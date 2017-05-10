@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Lesson 02</title>
+    <link rel="stylesheet" href="lib/angular/angular-csp.css">
+  </head>
+  <body ng-controller="ViewController as vm">
+    <h1>{{vm.message}}</h1>
+    <label> Filter: <input type="text" ng-model="vm.filter"
+    ng-change="vm.filterAutos()"
+    ng options="{ 'debounce': 250 }"></label>
+
+    <table>
+      <thead>
+        <tr>
+          <th>
+              <h1>Make</h1>
+          </th>
+          <th>
+              <h1>Model</h1>
+          </th>
+          <th>
+              <h1>Year</h1>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="auto in vm.autoViews" ng-cloak>
+            <td>
+              {{$index}}
+            </td>
+            <td>
+              {{auto.make}}
+            </td>
+            <td>
+              {{auto.model}}
+            </td>
+            <td>
+              {{auto.year}}
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>
+              <!-- Foot -->
+            </td>
+          </tr>
+        </tfoot>
+
+
+    </table>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-resource/angular-resource.min.js"></script>
+
+    <script src="views.js"></script>
+    <script src="app.js"></script>
+
+  </body>
+</html>
